@@ -98,6 +98,7 @@
 {
 	if(!_titleView) {
 		_titleView = [[TUILabel alloc] initWithFrame:CGRectZero];
+        _titleView.alignment = TUITextAlignmentCenter;
 		_titleView.userInteractionEnabled = NO;
 		_titleView.backgroundColor = [NSColor clearColor];
 		_titleView.hidden = YES; // we'll be drawing it ourselves
@@ -236,6 +237,7 @@ static CGRect ButtonRectCenteredInRect(CGRect a, CGRect b)
 		CGContextSetAlpha(ctx, 0.5);
 	CGRect titleFrame = self.bounds;
 	titleFrame.size.width -= (_titleEdgeInsets.left + _titleEdgeInsets.right);
+    titleFrame.size.height -= (_titleEdgeInsets.top + _titleEdgeInsets.bottom);
 	self.titleLabel.frame = titleFrame;
 	[self.titleLabel drawRect:self.titleLabel.bounds];
 	CGContextRestoreGState(ctx);
